@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Functions – Python Style Web Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #faf7ff;
+            text-align: center;
+            padding: 40px;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            width: 320px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #d8c6ff;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #6f42c1;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #5a32a0;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Math Functions Web Tool</h2>
+
+    <div class="box">
+        <button onclick="randomNumber()">Generate Random Number</button><br>
+
+        <input id="circleRadius" type="number" placeholder="Radius for Circle">
+        <button onclick="circleArea()">Area of Circle</button><br>
+
+        <input id="squareSide" type="number" placeholder="Side for Square">
+        <button onclick="squareArea()">Area of Square</button><br>
+
+        <input id="sphereRadius" type="number" placeholder="Radius for Sphere">
+        <button onclick="sphereVolume()">Volume of Sphere</button><br>
+
+        <button onclick="showPi()">Value of Pi</button>
+
+        <p id="output">Result will appear here...</p>
+    </div>
+
+<script>
+    function randomNumber() {
+        let num = Math.floor(Math.random() * 100) + 1;
+        document.getElementById("output").innerHTML = "Random Number: " + num;
+    }
+
+    function circleArea() {
+        let r = document.getElementById("circleRadius").value;
+        document.getElementById("output").innerHTML = 
+            "Area of Circle: " + (Math.PI * r * r).toFixed(4);
+    }
+
+    function squareArea() {
+        let a = document.getElementById("squareSide").value;
+        document.getElementById("output").innerHTML = 
+            "Area of Square: " + (a * a);
+    }
+
+    function sphereVolume() {
+        let r = document.getElementById("sphereRadius").value;
+        let v = (4/3) * Math.PI * Math.pow(r, 3);
+        document.getElementById("output").innerHTML = 
+            "Volume of Sphere: " + v.toFixed(4);
+    }
+
+    function showPi() {
+        document.getElementById("output").innerHTML = "Value of Pi: " + Math.PI;
+    }
+</script>
+
+</body>
+</html>
